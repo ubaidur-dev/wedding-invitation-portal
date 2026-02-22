@@ -1,195 +1,159 @@
-
 :root { 
     --gold: #d4af37; 
     --dark: #1a1a1a; 
-    --text: #555; 
-}
-
-
-html { 
-    scroll-behavior: smooth; 
 }
 
 body { 
     font-family: 'Poppins', sans-serif; 
-    color: var(--text); 
-    background: #fff; 
+    scroll-behavior: smooth; 
     overflow-x: hidden; 
+    width: 100%;
+    margin: 0;
 }
 
-.cursive { font-family: 'Great Vibes', cursive; color: var(--gold); }
-.section-padding { padding: 90px 0; }
-.text-gold { color: var(--gold); }
+.cursive { 
+    font-family: 'Great Vibes', cursive; 
+    color: var(--gold); 
+}
 
+.text-gold { 
+    color: var(--gold) !important; 
+}
 
+.section-padding { 
+    padding: 80px 0; 
+}
+
+/* Navbar */
 .custom-nav { 
     background: white; 
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
 }
 
 .nav-link { 
     color: #333 !important; 
     font-weight: 600; 
-    font-size: 0.75rem; 
-    letter-spacing: 1.5px; 
-    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    letter-spacing: 1px; 
 }
 
-
+/* Hero Section */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070') center/cover no-repeat fixed;
     display: flex; 
     align-items: center; 
     justify-content: center;
 }
 
-.letter-spacing { 
-    letter-spacing: 5px; 
-    text-transform: uppercase; 
+.display-1 { font-size: 5rem; }
+.letter-spacing { letter-spacing: 5px; text-transform: uppercase; }
+
+/* Couple Design */
+.couple-wrap-modern { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 40px; 
+    padding: 20px 0; 
 }
 
+.couple-profile { 
+    display: flex; 
+    align-items: center; 
+    gap: 30px; 
+    flex: 1; 
+}
 
-.couple-frame-wrapper { 
+.circular-frame { 
     position: relative; 
-    width: 320px; 
-    height: 180px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-}
-
-.photo-circle { 
-    width: 140px; 
-    height: 140px; 
+    width: 200px; 
+    height: 200px; 
+    min-width: 200px; 
     border-radius: 50%; 
-    overflow: hidden; 
-    border: 5px solid #fff; 
-    position: absolute; 
-    z-index: 1; 
-}
-
-.photo-circle img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-.groom-circle { left: 20px; }
-.bride-circle { right: 20px; }
-
-.heart-divider { 
-    position: absolute; 
-    width: 40px; 
-    height: 40px; 
-    background: white; 
-    border-radius: 50%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    color: var(--gold); 
-    z-index: 10; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-}
-
-.couple-name { 
-    font-family: 'Playfair Display', serif; 
-    font-weight: 700; 
-    font-style: italic; 
-    font-size: 2.5rem; 
-    color: var(--dark); 
-}
-
-.side-text { 
-    font-size: 0.9rem; 
-    line-height: 1.6; 
-    max-width: 300px; 
-    display: inline-block; 
-}
-
-
-.forever-icon i { 
-    font-size: 1.8rem; 
+    padding: 10px; 
     background: #fff; 
-    padding: 15px; 
-    border-radius: 50%; 
-    border: 1px solid rgba(212, 175, 55, 0.2); 
-    color: var(--gold); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
 }
 
-.forever-description { 
-    font-size: 1.1rem; 
-    line-height: 1.8; 
-    font-weight: 300; 
-    letter-spacing: 0.5px; 
-    max-width: 650px; 
-    margin: 0 auto; 
-    color: #666 !important; 
+.circular-frame img { 
+    width: 100%; height: 100%; 
+    object-fit: cover; border-radius: 50%; 
+    border: 4px solid var(--gold); 
 }
 
-.gold-line-divider { 
-    width: 60px; 
-    height: 2px; 
-    background: var(--gold); 
-    opacity: 0.4; 
-    border-radius: 10px; 
+.ring-rotate { 
+    position: absolute; 
+    top: -5px; left: -5px; right: -5px; bottom: -5px; 
+    border: 2px dashed var(--gold); border-radius: 50%; 
+    animation: rotateRing 12s linear infinite; opacity: 0.4; 
 }
 
+@keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-.gallery-wrapper { 
-    overflow: hidden; 
-    height: 380px; 
-    border: 8px solid #fff; 
-    transition: all 0.4s ease; 
+.heart-junction { position: relative; width: 100px; display: flex; justify-content: center; }
+.pulse-heart { font-size: 3.5rem; animation: heartThump 1.2s infinite ease-in-out; }
+@keyframes heartThump { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+/* Timeline */
+.timeline { position: relative; max-width: 1200px; margin: 0 auto; padding: 40px 0; }
+.timeline::after { 
+    content: ''; position: absolute; width: 2px; background: var(--gold); 
+    top: 0; bottom: 0; left: 50%; transform: translateX(-50%); 
 }
 
-.gallery-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    transition: 0.6s ease; 
+.timeline-item { padding: 10px 40px; position: relative; width: 50%; }
+.timeline-item::after { 
+    content: ''; position: absolute; width: 20px; height: 20px; 
+    right: -10px; background: white; border: 4px solid var(--gold); 
+    top: 15px; border-radius: 50%; z-index: 1; 
 }
 
-.gallery-wrapper:hover { 
-    transform: translateY(-10px); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important; 
+.left { left: 0; text-align: right; }
+.right { left: 50%; text-align: left; }
+.right::after { left: -10px; }
+
+.timeline-content { padding: 20px; background: white; border-radius: 10px; border-bottom: 3px solid var(--gold); }
+.date-badge { 
+    background: var(--gold); color: white; padding: 2px 12px; 
+    border-radius: 20px; font-size: 0.75rem; position: absolute; 
+    top: -12px; left: 15px; font-weight: 600; 
 }
 
-.gallery-wrapper:hover .gallery-img { 
-    transform: scale(1.1); 
+/* Forever Section Design */
+.forever-section { padding: 120px 0; }
+.forever-text { font-size: 1.4rem; line-height: 2; color: #fff; font-style: italic; }
+.designer-line { position: relative; height: 1px; background: rgba(212, 175, 55, 0.4); width: 60%; margin: 40px auto 0; }
+.designer-line i { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #1a1a1a; padding: 0 25px; color: var(--gold); font-size: 1.5rem; }
+
+/* RSVP & Inputs */
+.pro-input { border: 1px solid #eee !important; border-radius: 5px !important; padding: 12px !important; }
+.btn-gold-lg { background: var(--gold); color: white; padding: 15px; font-weight: bold; border: none; border-radius: 5px; }
+.gallery-img { height: 300px; width: 100%; object-fit: cover; border-radius: 10px; }
+
+/* Footer Design */
+.footer-section { 
+    background: #111; color: #fff; 
+    padding: 60px 0 30px; text-align: center; 
 }
 
+.love-line { font-size: 1.1rem; font-weight: 300; margin-bottom: 25px; color: #eee; }
+.footer-divider { height: 1px; width: 80px; background: var(--gold); margin: 0 auto 25px; opacity: 0.6; }
+.dev-tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: #888; }
 
-.custom-input-box { 
-    border-radius: 0; 
-    border: 1px solid #eee; 
-    border-bottom: 2px solid #ddd; 
-    background: #fcfcfc; 
-    padding: 12px; 
-    font-size: 0.9rem; 
-}
-
-.btn-gold-vvip { 
-    background: var(--gold); 
-    color: white; 
-    border-radius: 50px; 
-    font-weight: 600; 
-    border: none; 
-    transition: 0.4s; 
-    letter-spacing: 1.5px; 
-}
-
-.btn-gold-vvip:hover { 
-    background: var(--dark); 
-    transform: translateY(-2px); 
-    color: white; 
-}
-
-
-.text-gold-footer { 
-    color: var(--gold) !important; 
-    letter-spacing: 2px; 
-    font-weight: 600; 
-    text-transform: uppercase; 
+/* --- RESPONSIVE MAGIC --- */
+@media (max-width: 991px) {
+    .hero-section { height: 80vh; background-attachment: scroll !important; }
+    .display-1 { font-size: 2.8rem; }
+    .couple-wrap-modern { flex-direction: column; gap: 40px; }
+    .couple-profile { flex-direction: column; text-align: center !important; }
+    .profile-info { order: 2; } 
+    .circular-frame { order: 1; width: 180px; height: 180px; min-width: 180px; }
+    
+    .timeline::after { left: 20px; transform: none; }
+    .timeline-item { width: 100%; padding-left: 50px; text-align: left !important; left: 0; }
+    .timeline-item::after { left: 10px; right: auto; }
+    .date-badge { left: 50px !important; top: -15px !important; }
+    
+    .forever-text { font-size: 1.1rem; line-height: 1.8; }
+    .designer-line { width: 80%; }
 }
